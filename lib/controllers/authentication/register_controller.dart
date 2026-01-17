@@ -91,11 +91,7 @@ class RegisterController extends GetxController {
     } on ApiException catch (e) {
       _showSnackBar('Error', e.message, true);
     } catch (e) {
-      _showSnackBar(
-        'Error',
-        'An unexpected error occurred. Please try again.',
-        true,
-      );
+      _showSnackBar('Error signing up', e.toString(), true);
     } finally {
       _isLoading.value = false;
     }
