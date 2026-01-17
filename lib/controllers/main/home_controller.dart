@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:outkast/core/services/main_api_service.dart';
 import 'package:outkast/models/main/activities/activity_data.dart';
@@ -50,6 +51,15 @@ class HomeController extends GetxController {
       classes.addAll(response.classes);
     } catch (e) {
       print('Error fetching nearby classes: $e');
+      Get.snackbar(
+        'Error fetching nearby classes',
+        e.toString(),
+        snackPosition: SnackPosition.BOTTOM,
+        duration: Duration(seconds: 5),
+        backgroundColor: Colors.red.withOpacity(0.8),
+        colorText: Colors.white,
+        margin: const EdgeInsets.all(16),
+      );
     }
   }
 
